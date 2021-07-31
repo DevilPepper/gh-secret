@@ -1,0 +1,6 @@
+.devcontainer/
+.githooks/
+.vscode/
+node_modules/
+
+*.sh

@@ -1,0 +1,15 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": false,
+  "files.trimFinalNewlines": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.exclude": {
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/package-lock.json": true
+  },
+  "editor.detectIndentation": false,
+  "javascript.validate.enable": false,
+}

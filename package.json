@@ -1,0 +1,36 @@
+{
+  "name": "gh-secret",
+  "version": "1.0.0",
+  "description": "Manage an encrypted db of GitHub repo secrets and bulk add/update/remove them",
+  "bin": "src/index.js",
+  "author": "SupaStuff",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-typescript": "^7.13.0",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.23.0",
+    "eslint-plugin-import": "^2.22.1",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.2.3"
+  },
+  "scripts": {
+    "clean": "rm -rf dist/",
+    "start": "ts-node src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@octokit/rest": "^18.7.1",
+    "dotenv": "^10.0.0",
+    "yargs": "^16.2.0"
+  },
+  "babel": {
+    "extends": "./.settings/babel.config.json"
+  },
+  "eslintConfig": {
+    "extends": "./.settings/.eslintrc.json"
+  }
+}
