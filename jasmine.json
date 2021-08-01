@@ -1,0 +1,12 @@
+{
+  "spec_dir": "dist/test",
+  "spec_files": [
+    "**/*[tT]est.js"
+  ],
+  "helpers": [
+    "helpers/**/*.js"
+  ],
+  "jsLoader": "import",
+  "stopSpecOnExpectationFailure": false,
+  "random": true
+}

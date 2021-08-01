@@ -1,11 +1,17 @@
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "modules": false
-      }
-    ],
     "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "babel-plugin-root-import", {
+        "rootPathSuffix": "src"
+      }
+    ]
+  ],
+  "ignore": [
+    "node_modules",
+    "dist",
+    ".*"
   ]
 }
