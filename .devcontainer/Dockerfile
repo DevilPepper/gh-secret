@@ -11,9 +11,8 @@ RUN mkdir -p /home/$USERNAME/workspace/node_modules \
         /home/$USERNAME/.vscode-server \
         /home/$USERNAME/.vscode-server-insiders
 
-COPY entrypoint.sh /bin/entrypoint.sh
-RUN chmod +x /bin/entrypoint.sh
+RUN apk update \
+ && apk add -u --no-cache \
+            gnupg
 
 USER $USERNAME
-
-ENTRYPOINT ["/bin/entrypoint.sh"]

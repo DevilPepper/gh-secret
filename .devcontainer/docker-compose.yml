@@ -13,8 +13,6 @@ services:
       - node_modules:/home/node/workspace/node_modules
       - vscode_server:/home/node/.vscode-server/extensions
       - vscode_server_insiders:/home/node/.vscode-server-insiders/extensions
-      # Use your ssh keys from within the container... entrypoint.sh will fix the permissions
-      - ~/.ssh:/tmp/.ssh:cached,ro
       # In case you load bash with default settings, changing the history file location
       # prevents the history from being truncated. Add this to your .bashrc:
       # HISTFILE=~/.my_bash_history
