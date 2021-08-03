@@ -17,7 +17,16 @@ const remove: CommandModule = {
 };
 
 export function handler(argv: Yarguments) {
+  const secretNames = argv.secretNames ?? [];
 
+  const secrets = secretNames.reduce((acc, curr) => {
+    const { [curr]: _, ...rest } = acc;
+    return rest
+  }, argv.secrets ?? {});
+
+  argv.secrets = {
+    ...secrets
+  };
 }
 
 export default remove;

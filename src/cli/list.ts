@@ -9,7 +9,7 @@ const list: CommandModule = {
 };
 
 export function handler(argv: Yarguments) {
-
+  console.log(Object.keys(argv.secrets ?? {}));
 }
 
 export default list;

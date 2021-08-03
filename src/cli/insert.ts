@@ -1,3 +1,4 @@
+import inquirer from 'inquirer';
 import { CommandModule } from 'yargs';
 
 import { Yarguments } from '~/helpers';
@@ -16,8 +17,22 @@ const insert: CommandModule = {
   handler,
 };
 
-export function handler(argv: Yarguments) {
+export async function handler(argv: Yarguments) {
+  const secretNames = argv.secretNames ?? [];
+  const secrets = await inquirer.prompt(
+    secretNames.map(secret => {
+      return {
+        name: secret,
+        message: `Enter the value for ${secret}`,
+        type: "password",
+      };
+    })
+  );
 
+  argv.secrets = {
+    ...argv.secrets,
+    ...secrets,
+  }
 }
 
 export default insert;

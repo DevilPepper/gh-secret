@@ -1,3 +1,4 @@
+import inquirer from 'inquirer';
 import { CommandModule } from 'yargs';
 
 import { Yarguments } from '~/helpers';
@@ -8,8 +9,14 @@ const change: CommandModule = {
   handler,
 };
 
-export function handler(argv: Yarguments) {
-
+export async function handler(argv: Yarguments) {
+  const { passphrase } = await inquirer.prompt({
+    name: "passphrase",
+    message: "Enter your new passphrase",
+    type: "password",
+  });
+  const password = Buffer.from(passphrase as string);
+  argv.password = password;
 }
 
 export default change;

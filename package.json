@@ -28,8 +28,7 @@
   "scripts": {
     "clean": "rm -rf dist/",
     "reinstall": "rm -rf package-lock.json node_modules/* node_modules/.[!.]* && npm install",
-    "start": "npm run build && node --experimental-specifier-resolution=node dist/src/index.js",
-    "go": "node --experimental-specifier-resolution=node dist/src/index.js",
+    "start": "node --experimental-specifier-resolution=node dist/src/index.js",
     "test": "npm run build && node --experimental-specifier-resolution=node node_modules/jasmine/bin/jasmine --reporter=jasmine-console-reporter --config=jasmine.json",
     "build": "babel . --out-dir dist --extensions '.ts' --ignore node_modules,dist,.*"
   },
