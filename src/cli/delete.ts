@@ -1,6 +1,6 @@
 import { CommandModule } from 'yargs';
 
-import { Yarguments } from '~/helpers/Yarguments';
+import { Yarguments } from '~/helpers';
 
 const del: CommandModule = {
   command: `delete`,

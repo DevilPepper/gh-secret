@@ -1,6 +1,6 @@
 import { CommandModule } from 'yargs';
 
-import { Yarguments } from '~/helpers/Yarguments';
+import { Yarguments } from '~/helpers';
 
 const get: CommandModule = {
   command: `get`,
@@ -17,7 +17,15 @@ const get: CommandModule = {
 };
 
 export function handler(argv: Yarguments) {
+  const secretNames = argv.secretNames ?? [];
+  const secrets = secretNames.reduce((acc, curr) => {
+    return {
+      ...acc,
+      ...{ [curr]: argv.secrets?.[curr] }
+    };
+  }, {});
 
+  console.log(secrets);
 }
 
 export default get;
