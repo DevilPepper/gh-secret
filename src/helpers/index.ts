@@ -1,4 +1,6 @@
 import * as Middlewares from './Middlewares';
+
+export * from './Promised';
 export * from './Yarguments';
 
 export const middlewares = [

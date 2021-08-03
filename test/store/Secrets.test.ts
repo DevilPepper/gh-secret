@@ -12,7 +12,6 @@ describe('A simple test', () => {
   it(`should encrypt arbitrary object and successfully decrypt back`, () => {
     const fileBuffer =  encrypt(secrets, password);
     const decrypted = decrypt(fileBuffer, password);
-    console.log(decrypted);
 
     expect(decrypted).toEqual(secrets);
   });

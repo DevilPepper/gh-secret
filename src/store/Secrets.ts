@@ -49,11 +49,12 @@ export function encrypt(data: Secrets, password: Buffer): Buffer {
     cipher.update(json),
     cipher.final(),
   ]);
+  const authTag = cipher.getAuthTag();
 
   return Buffer.concat([
     salt,
     iv,
-    cipher.getAuthTag(),
+    authTag,
     encrypted,
   ]);
 }

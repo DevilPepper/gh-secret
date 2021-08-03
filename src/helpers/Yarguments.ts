@@ -1,8 +1,10 @@
 import { Arguments } from 'yargs';
 
+import { Secrets } from '~/store';
+
 export type Yargs  = {
   secretsFile?: string;
-  secrets?: {};
+  secrets?: Secrets;
   secretNames?: string[];
   password?: Buffer;
   user?: string;
