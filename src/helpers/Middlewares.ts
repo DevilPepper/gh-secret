@@ -1,4 +1,4 @@
-// import { Octokit } from '@octokit/rest'
+import { Octokit } from '@octokit/rest'
 import inquirer from 'inquirer';
 
 import {
@@ -39,5 +39,7 @@ export async function askForPassphrase(argv: Yarguments): Promise<Yarguments> {
 }
 
 export function authenticate(argv: Yarguments): Yarguments {
+  const { GITHUB_TOKEN } = argv.secrets ?? {};
+  argv.gh = new Octokit({ auth: GITHUB_TOKEN});
   return argv;
 }

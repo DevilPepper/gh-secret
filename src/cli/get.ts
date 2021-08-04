@@ -25,7 +25,7 @@ export function handler(argv: Yarguments) {
     };
   }, {});
 
-  console.log(secrets);
+  console.info(secrets);
 }
 
 export default get;
