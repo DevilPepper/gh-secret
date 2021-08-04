@@ -52,7 +52,7 @@ export function deleteSecrets(argv: Yarguments) {
       }
     }
     await Promise.all(promises);
-  }
+  };
 }
 
 export default del;

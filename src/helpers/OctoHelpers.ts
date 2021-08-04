@@ -1,9 +1,11 @@
 import { Endpoints } from "@octokit/types";
+import sodium from 'tweetsodium';
 
 import { sleep } from './Promised';
 import { Yarguments } from './Yarguments';
 
 export type SearchResults = Endpoints["GET /search/repositories"]["response"]["data"]["items"];
+
 export async function search(argv: Yarguments, resultsHandler: (results: SearchResults) => Promise<void>) {
   const topics = (argv.topics ?? [])
     .map(t => `topic:${t}`)
@@ -29,4 +31,12 @@ export async function search(argv: Yarguments, resultsHandler: (results: SearchR
     promises.push(resultsHandler(items ?? []));
   } while ((total_count ?? 0) > (per_page * page++));
   await Promise.all(promises);
+}
+
+export function sodiumEncrypt(key: string, value: string): string {
+  const messageBytes = Buffer.from(value);
+  const keyBytes = Buffer.from(key, 'base64');
+
+  const encrypted = sodium.seal(messageBytes, keyBytes);
+  return Buffer.from(encrypted).toString('base64');
 }
